@@ -3,7 +3,7 @@ require 'json'
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 Pod::Spec.new do |s|
-  s.name         = package['name']
+  s.name         = "react-native-loudness"
   s.version      = package['version']
   s.summary      = package['description']
   s.license      = package['license']
@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.platform     = :ios, "9.0"
 
-  s.source       = { :git => "https://github.com/fchenchen/react-native-loudness.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/hieuxit/react-native-loudness.git", :tag => "v#{s.version}" }
+  s.homepage       = "https://github.com/hieuxit/react-native-loudness"
   s.source_files  = "ios/**/*.{h,m}"
 
   s.dependency 'React'

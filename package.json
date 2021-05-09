@@ -1,6 +1,6 @@
 {
-  "name": "react-native-loudness",
-  "version": "2.0.0",
+  "name": "@hieuxit/react-native-loudness",
+  "version": "2.0.4",
   "description": "Read microphone loudness in React Native",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,6 @@
     "volume",
     "audio"
   ],
-  "author": "Fuchen Chen",
+  "author": "Fuchen Chen and updated by hieuxit",
   "license": "Apache-2.0"
 }

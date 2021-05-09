@@ -3,11 +3,11 @@
 #else
 #import <React/RCTBridgeModule.h>
 #endif
-
+#import <React/RCTEventEmitter.h>
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface RNLoudness : NSObject <RCTBridgeModule>{
+@interface RNLoudness : RCTEventEmitter <RCTBridgeModule>{
   AVAudioRecorder* recorder;
   NSURL* tmpDirURL;
   NSURL* saveDirURL;

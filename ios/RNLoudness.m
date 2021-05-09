@@ -3,6 +3,17 @@
 #import <Foundation/Foundation.h>
 
 @implementation RNLoudness
+{
+  bool hasListeners;
+}
+
+-(void)startObserving {
+    hasListeners = YES;
+}
+
+-(void)stopObserving {
+    hasListeners = NO;
+}
 
 + (BOOL)requiresMainQueueSetup
 {

@@ -1,5 +1,13 @@
-import { NativeModules } from 'react-native';
-import { Platform } from 'react-native';
+import {
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native';
+
+const eventEmitter = new NativeEventEmitter(NativeModules.RNLoudness);
+
+let addListener = (eventName, method) => {
+  return eventEmitter.addListener(eventName, (event) => method(event));
+}
 
 let start = (fileName) => {
   if (fileName){
@@ -16,5 +24,6 @@ let getLoudness = NativeModules.RNLoudness.getLoudness;
 export default {
   start,
   stop,
-  getLoudness
+  getLoudness,
+  addListener
 };

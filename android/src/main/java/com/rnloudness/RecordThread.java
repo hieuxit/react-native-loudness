@@ -17,7 +17,10 @@ import java.nio.ByteOrder;
 import java.nio.ShortBuffer;
 
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class RecordThread extends Thread {
   private static final String TAG = "RecordThread";
@@ -94,6 +97,11 @@ public class RecordThread extends Thread {
         // Calculate loudness
         ShortBuffer audioDataShort = audioData.asShortBuffer();
         calcLoudness(audioDataShort);
+
+        // Create map for params
+        WritableMap payload = Arguments.createMap();
+        payload.putDouble("loudness", loudness);
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("onLoudness", payload);
 
         // Data read successfully
         if (shouldSave && tmpFileOutputStream != null){
