@@ -158,8 +158,17 @@ public class RecordThread extends Thread {
 
         tmpFileInputStream.close();
         saveFileOutputStream.close();
+
+        WritableMap payload = Arguments.createMap();
+        payload.putBoolean("success", true);
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("onStop", payload);
+
       } catch (Exception e){
         Log.e(TAG,"Failed to create file");
+
+        WritableMap payload = Arguments.createMap();
+        payload.putBoolean("success", false);
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("onStop", payload);
       }
     }
     interrupt();

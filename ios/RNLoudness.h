@@ -8,9 +8,10 @@
 
 
 @interface RNLoudness : RCTEventEmitter <RCTBridgeModule>{
-  AVAudioRecorder* recorder;
-  NSURL* tmpDirURL;
-  NSURL* saveDirURL;
+    AVAudioRecorder* recorder;
+    NSURL* tmpDirURL;
+    NSURL* saveDirURL;
+    NSTimer* timer;
 }
 
 @end
