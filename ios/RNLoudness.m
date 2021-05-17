@@ -118,7 +118,7 @@ RCT_EXPORT_METHOD(getLoudness:(RCTResponseSenderBlock)callback)
     NSNumber *loudness = [NSNumber numberWithFloat:avgPower];
 
     if (hasListeners) { // Only send events if anyone is listening
-        [self sendEventWithName:@"onLoudness" body:@{@"name": loudness}];
+        [self sendEventWithName:@"onLoudness" body:@{@"loudness": loudness}];
     }
 }
 
